@@ -12,8 +12,8 @@ inputFile.addEventListener("change", uploadImages);
 function uploadImage() {
     let imgLink = URL.createObjectURL(inputFile.files[0]);
 
-    imgView.querySelector("img").src = imgLink;
-    imgView.querySelector("img").style.display = "block";
+    imgView.querySelector("canvas").src = imgLink;
+    imgView.querySelector("canvas").style.display = "block";
 
 }
 
@@ -30,8 +30,8 @@ dropArea.addEventListener("drop", function (e) {
 function uploadImages() {
     let imgLink = URL.createObjectURL(inputFile.files[0]);
 
-    imgViews.querySelector("img").src = imgLink;
-    imgViews.querySelector("img").style.display = "block";
+    imgViews.querySelector("canvas").src = imgLink;
+    imgViews.querySelector("canvas").style.display = "block";
 }
 
 dropArea.addEventListener("dragover", function (e) {
@@ -173,104 +173,5 @@ rangeImg.addEventListener('input', RangeValueImg);
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/////////////////////////// Bouton + 0.1  ///////////////////////////
 
-function btnDroit() {
-    let intensity = parseFloat(document.getElementById("myRange").value);
 
-    intensity += 0.1;
-    if (intensity < 0.05) { intensity = 0.0; }
-    else if (intensity < 0.15 && intensity >= 0.05) { intensity = 0.1; }
-    else if (intensity < 0.25 && intensity >= 0.15) { intensity = 0.2; }
-    else if (intensity < 0.35 && intensity >= 0.25) { intensity = 0.3; }
-    else if (intensity < 0.45 && intensity >= 0.35) { intensity = 0.4; }
-    else if (intensity < 0.55 && intensity >= 0.45) { intensity = 0.5; }
-    else if (intensity < 0.65 && intensity >= 0.55) { intensity = 0.6; }
-    else if (intensity < 0.75 && intensity >= 0.65) { intensity = 0.7; }
-    else if (intensity < 0.85 && intensity >= 0.75) { intensity = 0.8; }
-    else if (intensity < 0.95 && intensity >= 0.85) { intensity = 0.9; }
-    else { intensity = 1.0; }
-
-    // Mettre à jour la valeur de l'élément input avec la nouvelle intensité
-    document.getElementById("myRange").value = intensity;
-
-    // Optionnel : vous pouvez également mettre à jour un affichage du "niveau" d'intensité si nécessaire
-    console.log("Nouvelle intensité:", intensity);
-}
-/////////////////////////// Bouton - 0.1  ///////////////////////////
-
-function btnGauche() {
-    let intensity = parseFloat(document.getElementById("myRange").value);
-
-    intensity -= 0.1;
-    if (intensity < 0.05) { intensity = 0.0; }
-    else if (intensity < 0.15 && intensity >= 0.05) { intensity = 0.1; }
-    else if (intensity < 0.25 && intensity >= 0.15) { intensity = 0.2; }
-    else if (intensity < 0.35 && intensity >= 0.25) { intensity = 0.3; }
-    else if (intensity < 0.45 && intensity >= 0.35) { intensity = 0.4; }
-    else if (intensity < 0.55 && intensity >= 0.45) { intensity = 0.5; }
-    else if (intensity < 0.65 && intensity >= 0.55) { intensity = 0.6; }
-    else if (intensity < 0.75 && intensity >= 0.65) { intensity = 0.7; }
-    else if (intensity < 0.85 && intensity >= 0.75) { intensity = 0.8; }
-    else if (intensity < 0.95 && intensity >= 0.85) { intensity = 0.9; }
-    else { intensity = 1.0; }
-
-    // Mettre à jour la valeur de l'élément input avec la nouvelle intensité
-    document.getElementById("myRange").value = intensity;
-
-    // Optionnel : vous pouvez également mettre à jour un affichage du "niveau" d'intensité si nécessaire
-    console.log("Nouvelle intensité:", intensity);
-}
-
-/////////////////////////// Fin Fonction  ///////////////////////////
-
-/////////////////////////// Bouton Range Image + 0.1  ///////////////////////////
-
-function btnDroitImg() {
-    let intensity = parseFloat(document.getElementById("rangeImg").value);
-
-    intensity += 0.1;
-    if (intensity < 0.05) { intensity = 0.0; }
-    else if (intensity < 0.15 && intensity >= 0.05) { intensity = 0.1; }
-    else if (intensity < 0.25 && intensity >= 0.15) { intensity = 0.2; }
-    else if (intensity < 0.35 && intensity >= 0.25) { intensity = 0.3; }
-    else if (intensity < 0.45 && intensity >= 0.35) { intensity = 0.4; }
-    else if (intensity < 0.55 && intensity >= 0.45) { intensity = 0.5; }
-    else if (intensity < 0.65 && intensity >= 0.55) { intensity = 0.6; }
-    else if (intensity < 0.75 && intensity >= 0.65) { intensity = 0.7; }
-    else if (intensity < 0.85 && intensity >= 0.75) { intensity = 0.8; }
-    else if (intensity < 0.95 && intensity >= 0.85) { intensity = 0.9; }
-    else { intensity = 1.0; }
-
-    // Mettre à jour la valeur de l'élément input avec la nouvelle intensité
-    document.getElementById("rangeImg").value = intensity;
-
-    // Optionnel : vous pouvez également mettre à jour un affichage du "niveau" d'intensité si nécessaire
-    console.log("Nouvelle intensité image:", intensity);
-}
-/////////////////////////// Bouton Range Image - 0.1  ///////////////////////////
-
-function btnGaucheImg() {
-    let intensity = parseFloat(document.getElementById("rangeImg").value);
-
-    intensity -= 0.1;
-    if (intensity < 0.05) { intensity = 0.0; }
-    else if (intensity < 0.15 && intensity >= 0.05) { intensity = 0.1; }
-    else if (intensity < 0.25 && intensity >= 0.15) { intensity = 0.2; }
-    else if (intensity < 0.35 && intensity >= 0.25) { intensity = 0.3; }
-    else if (intensity < 0.45 && intensity >= 0.35) { intensity = 0.4; }
-    else if (intensity < 0.55 && intensity >= 0.45) { intensity = 0.5; }
-    else if (intensity < 0.65 && intensity >= 0.55) { intensity = 0.6; }
-    else if (intensity < 0.75 && intensity >= 0.65) { intensity = 0.7; }
-    else if (intensity < 0.85 && intensity >= 0.75) { intensity = 0.8; }
-    else if (intensity < 0.95 && intensity >= 0.85) { intensity = 0.9; }
-    else { intensity = 1.0; }
-
-    // Mettre à jour la valeur de l'élément input avec la nouvelle intensité
-    document.getElementById("rangeImg").value = intensity;
-
-    // Optionnel : vous pouvez également mettre à jour un affichage du "niveau" d'intensité si nécessaire
-    console.log("Nouvelle intensité image:", intensity);
-}
-
-/////////////////////////// Fin Fonction  Range Image  ///////////////////////////

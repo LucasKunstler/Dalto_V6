@@ -6,11 +6,15 @@
     url("../Font/fa-regular-400.ttf") format(ttf),
     url('../Font/fa-regular-400.woff2') format(woff);
 }
-
 @font-face {
     font-family: "Geo";
     src: local("Geo"),
     url("../Font/Geo/Geo-Regular.ttf");
+}
+@font-face {
+    font-family: "iceland";
+    src:local("iceland"),
+    url("../Font/Iceland/Iceland-Regular.ttf");
 }
 /****** FONT ************/
 
@@ -30,6 +34,7 @@ nav{
     color: rgb(255, 255, 255);
     margin: 0;
     padding: 10px;
+    padding-bottom: 0;
     display: flex;
     justify-content: space-between;
 }
@@ -38,6 +43,7 @@ nav{
 /*     
     width: 100px;
     height: 100px; */
+    margin-bottom: 10px;
     padding: 0;
     /* position: relative; */
 }
@@ -55,6 +61,7 @@ nav{
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 select{
     background-color: transparent;
@@ -78,29 +85,39 @@ nav .centre{
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     /* padding-bottom: 2%; */
 }
 nav .centre h1{
     margin: 0;
     text-align: center;
-    font-family: "Geo";
+    /* font-family: "Geo"; */
+    font-family: "iceland";
     font-size: 100px;
 }
 nav .centre .link{
     display: flex;
     justify-content: space-between;
+    flex: end;
     /* gap: 5%; */
     width: 100%;
 }
 nav .centre .link a{
     color: white;
+    padding-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-bottom: 5px;
+    /* border: 1px solid white; */
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
     text-align: center;
 }
 nav .centre .link a:hover{
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     color: black;
     background-color: white;
+
 }
 
 /* .simuCouleur{
@@ -167,7 +184,7 @@ nav a{
 
 /******************************* Bouton i *******************************/
 #simulateurCouleur{
-    min-height: 100vh;
+    min-height: 85vh;
     margin: 0;
 }
 h1, h2{
@@ -315,6 +332,7 @@ option {
 }
 #myRange, #rangeImg{
     background-color: black;
+    /* cursor:ew-resize; */
     cursor: grab;
     margin: 0;   
     height: 7px;
@@ -419,12 +437,15 @@ option {
     height: auto;
     
 }
-.Deuteranope h4, .Tritanope h4, .Protanope h4{
+.Deuteranope .h4, .Tritanope .h4, .Protanope .h4{
+    display: flex;
+    justify-content: center;
+}
+/* .Deuteranope h4, .Tritanope h4, .Protanope h4{
     text-align: center;
     padding: 20px;
-    /* padding-top: 0; */
     
-}
+} */
 
 /* .Bandeau_Protanopie ,.Bandeau_Tritanopie ,.Bandeau_Deuteranopie{
     display: flex;
@@ -434,7 +455,13 @@ option {
 .Protanope, .Tritanope, .Deuteranope{
     width: 25%;
     border: 1px solid ;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
 }
+/* .Protanope:last-child, .Tritanope:last-child, .Deuteranope:last-child{
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+} */
 
 .couleur{
     display: flex;
@@ -480,7 +507,7 @@ option {
 /* *********************************************************************************** */
 
 #simulateurImage{
-    min-height: 100vh;
+    min-height: 60vh;
     margin-top: 1%;
     /* padding-top: 1%; */
     padding-bottom: 2%;
@@ -533,7 +560,7 @@ input[type="file"]{
     position: fixed;
     display: none;
 }
-#img-view img{
+#img-view img, #img-view canvas{
     height: 100%;
     height: auto;
     border-radius: 20px;
@@ -564,7 +591,7 @@ input[type="file"]{
     height: 50px;
     padding: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 /* #simulateurimage .btn button{
     width: 30%;
@@ -678,7 +705,7 @@ input[type="file"]{
     /* display: inline-block;
     animation: ; */
     min-height: 100vh;
-    background-color: rgb(255, 220, 130);
+    background-color: rgb(221, 221, 221);
     padding: 1%;
     margin: 0;
 }
@@ -688,4 +715,78 @@ footer{
     background-color: rgb(36, 36, 36);
     padding: 10px;
     height: 10vh;
+}
+@media screen and (max-width: 480px) {
+    nav, #nav, .nav{
+        padding: 5px;
+        padding-bottom: 0;
+    }
+    nav .centre{
+        width: 65%;
+    }
+    nav .centre h1{
+        font-size: 40px;
+        align-content: center;
+    }
+    /* #menu{
+        width: 50px;
+        margin-bottom: 5px;
+    } */
+    nav #menu, 
+    nav .langue{
+        width: 50px;
+        margin-bottom: 5px;
+
+    }
+    /* .langue{
+        width: 50px;
+
+    } */
+    a{
+        font-size: 9px;
+    }
+    nav .langue #langue {
+        font-size: 10px;
+    }
+    .simuCouleur{
+        justify-content: space-around;
+        width: 100%;
+        height: 15vh;
+    }
+    #add{
+        display: none;
+    }
+    #add{
+        margin-right: 5px;
+        width: 25px;
+    }
+    #add button{
+        padding: 0;
+    }
+    #add button img, #add button{
+        height: 25px;
+        width: 25px;
+    }
+    h4{
+        font-size: 10px;
+    }
+    .couleurP{
+        width: 60px;
+        height: 80px;
+    }
+    #palette-1, #palette-2, #palette-3, #palette-4, #palette-5, #palette-6{
+        height: 80%;
+    }
+    #couleurInput-1, #couleurInput-2, #couleurInput-3, #couleurInput-4{
+        width: 58px;
+    }
+    .simuCouleur .couleurP .delete-btn{
+        padding: auto;
+        text-align: center;
+        font-size: 9px;
+    }
+    .btn #btnProtanope, .btn #btnTritanope, .btn #btnDeutéranope{
+        height: 30px;
+        font-size: 12px;
+    }
 }
