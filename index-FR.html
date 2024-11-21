@@ -203,61 +203,39 @@
 
       <div class="hero">
         <label for="input-file" id="drop-area">
-          <input type="file" accept="image/*" id="input-file">
-          <div id="img-view">
-
-            <!-- canvas -->
-            <!-- <img src="https://picsum.photos/800/300" alt="" id="imgOrigine"> -->
-            <canvas src="https://picsum.photos/800/300" alt="" id="imgOrigine"></canvas>
-            <!-- canvas -->
-
-            <!-- <p>Drag an drop or click here<br>to upload image</p> -->
-            <!-- <span>Upload any image from desktop</span> -->
-          </div>
+            <input type="file" accept="image/*" id="input-file">
+            <div id="img-view">
+                <canvas id="imgOrigine"></canvas> <!-- Le canvas vide qui sera rempli par l'image -->
+            </div>
         </label>
-
-      </div>
-      <!-- Drag an drop -->
-
-      <div class="colonneImage">
-
+    </div>
+    
+    <div class="colonneImage">
         <div class="colonne2">
-
-          <!-- <button id="btnGaucheImg" onclick="btnGaucheImg()"><img src="./Image/icons8-sort-down-50.png" alt="" id="fleche_gauche_Img"></button> -->
-
-          <label for="range_protanopie" id="correctionImg">Sévérité</label>
-
-          <!-- <button id="btnDroiteImg" onclick="btnDroitImg()"><img src="./Image/icons8-sort-down-50.png" alt="" id="fleche_droite_Img"></button> -->
-
+            <label for="range_protanopie" id="correctionImg">Sévérité</label>
         </div>
-        <!--  -->
+    
         <div class="colonne">
-
-          <p>0</p>
-
-          <div class="range-containerImg">
-            <input type="range" id="rangeImg" min="0" max="1.0" step="any" list="marker"
-              oninput="updateColorsFromRange()" value="0.5">
-            <div class="range-value" id="testImg"></div>
-          </div>
-
-          <p>1</p>
-
+            <p>0</p>
+            <div class="range-containerImg">
+                <input type="range" id="rangeImg" min="0" max="1.0" step="any" list="marker" oninput="updateColorsFromRange()" value="0.5">
+                <div class="range-value" id="testImg"></div>
+            </div>
+            <p>1</p>
         </div>
-        <!--  -->
-
-      </div>
-      <div id="img-views"> 
-        <!-- canvas -->
-         <!--<img src="https://picsum.photos/800/300" alt="" id="imageDaltonnisme"> -->
-        <canvas src="https://picsum.photos/800/300" alt="" id="imageDaltonnisme"></canvas> 
-        <!-- canvas -->
-      </div> 
-      <div class="btn">
-        <button id="btnProtanope" onclick="applyFilter('btnProtanope')">Protanope</button>
-        <button id="btnTritanope" onclick="applyFilter('btnTritanope')">Tritanope</button>
-        <button id="btnDeutéranope" onclick="applyFilter('btnDeutéranope')">Deutéranope</button>
-      </div> 
+    </div>
+    
+    <div id="img-views">
+        <canvas id="imageDaltonnisme"></canvas> <!-- Le canvas vide qui sera rempli par l'image -->
+    </div>
+    
+    <div class="btn">
+        <button id="btnProtanope">Protanope</button>
+        <button id="btnTritanope">Tritanope</button>
+        <button id="btnDeutéranope">Deutéranope</button>
+    </div>
+    
+    
      
 
     </div>
@@ -290,7 +268,7 @@
     </footer>
     <script src="./JS/scripttest.js"></script>
     <script src="./JS/AjoutDePalette.js"></script>
-    <script src="./JS/FiltreImage.js"></script>
+    <!-- <script src="./JS/FiltreImage.js"></script> -->
     <!-- <script src="./JS/SupprPalette.js"></script> -->
     <script src="./JS/Animation.js"></script>
   </body>
