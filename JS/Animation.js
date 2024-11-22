@@ -1,140 +1,4 @@
 /////////////////////////// Drag and Drop ///////////////////////////
-// const dropArea = document.getElementById("drop-area");
-// const inputFile = document.getElementById("input-file");
-// const imgView = document.getElementById("img-view");
-// const imgViews = document.getElementById("img-views");
-// // const imgDalto = document.getElementById("imageDaltonnisme");
-
-
-// inputFile.addEventListener("change", uploadImage);
-// inputFile.addEventListener("change", uploadImages);
-
-// function uploadImage() {
-//     let imgLink = URL.createObjectURL(inputFile.files[0]);
-
-//     imgView.querySelector("canvas").src = imgLink;
-//     imgView.querySelector("canvas").style.display = "block";
-
-// }
-
-// dropArea.addEventListener("dragover", function (e) {
-//     e.preventDefault();
-
-// })
-// dropArea.addEventListener("drop", function (e) {
-//     e.preventDefault();
-//     inputFile.files = e.dataTransfer.files;
-//     uploadImage();
-// })
-
-// function uploadImages() {
-//     let imgLink = URL.createObjectURL(inputFile.files[0]);
-
-//     imgViews.querySelector("canvas").src = imgLink;
-//     imgViews.querySelector("canvas").style.display = "block";
-// }
-
-// dropArea.addEventListener("dragover", function (e) {
-//     e.preventDefault();
-
-// })
-// dropArea.addEventListener("drop", function (e) {
-//     e.preventDefault();
-//     inputFile.files = e.dataTransfer.files;
-//     uploadImages();
-// })
-
-// const dropArea = document.getElementById("drop-area");
-// const inputFile = document.getElementById("input-file");
-// const imgView = document.getElementById("img-view");
-// const imgViews = document.getElementById("img-views");
-
-// // Charger une image aléatoire de base
-// window.onload = function () {
-//     loadRandomImage(); // Appeler la fonction de chargement d'une image aléatoire
-// };
-
-// function loadRandomImage() {
-//     const imgLink = "https://picsum.photos/800/300"; // URL pour une image aléatoire de taille 800x300
-
-//     // Créer une image et l'afficher dans le canvas
-//     const img = new Image();
-//     img.onload = function () {
-//         // Charger l'image dans le premier canvas
-//         const canvas = imgView.querySelector("canvas");
-//         const ctx = canvas.getContext("2d");
-//         canvas.width = img.width;
-//         canvas.height = img.height;
-//         ctx.drawImage(img, 0, 0);
-//         canvas.style.display = "block";  // Afficher le canvas
-//     };
-//     img.src = imgLink;
-
-//     // Charger l'image dans le deuxième canvas
-//     const img2 = new Image();
-//     img2.onload = function () {
-//         const canvas2 = imgViews.querySelector("canvas");
-//         const ctx2 = canvas2.getContext("2d");
-//         canvas2.width = img2.width;
-//         canvas2.height = img2.height;
-//         ctx2.drawImage(img2, 0, 0);
-//         canvas2.style.display = "block";  // Afficher le canvas
-//     };
-//     img2.src = imgLink;
-// }
-
-// inputFile.addEventListener("change", uploadImage);
-// inputFile.addEventListener("change", uploadImages);
-
-// function uploadImage() {
-//     const file = inputFile.files[0];
-//     if (file) {
-//         let imgLink = URL.createObjectURL(file);
-
-//         const img = new Image();
-//         img.onload = function () {
-//             const canvas = imgView.querySelector("canvas");
-//             const ctx = canvas.getContext("2d");
-//             canvas.width = img.width;
-//             canvas.height = img.height;
-//             ctx.drawImage(img, 0, 0);
-//             canvas.style.display = "block";  // Afficher le canvas
-//         };
-//         img.src = imgLink;
-//     }
-// }
-
-// function uploadImages() {
-//     const file = inputFile.files[0];
-//     if (file) {
-//         let imgLink = URL.createObjectURL(file);
-
-//         const img = new Image();
-//         img.onload = function () {
-//             const canvas = imgViews.querySelector("canvas");
-//             const ctx = canvas.getContext("2d");
-//             canvas.width = img.width;
-//             canvas.height = img.height;
-//             ctx.drawImage(img, 0, 0);
-//             canvas.style.display = "block";  // Afficher le canvas
-//         };
-//         img.src = imgLink;
-//     }
-// }
-
-// dropArea.addEventListener("dragover", function (e) {
-//     e.preventDefault();
-// });
-
-// dropArea.addEventListener("drop", function (e) {
-//     e.preventDefault();
-//     const files = e.dataTransfer.files;
-//     if (files.length > 0) {
-//         inputFile.files = files;
-//         uploadImage();  // Charger l'image dans la première zone
-//         uploadImages(); // Charger l'image dans la deuxième zone
-//     }
-// });
 const dropArea = document.getElementById("drop-area");
 const inputFile = document.getElementById("input-file");
 const imgView = document.getElementById("img-view");
@@ -261,7 +125,7 @@ function applyFilter(canvas, filter) {
 // Mettre à jour l'intensité du filtre en fonction de la valeur de la barre
 function updateColorsFromRange() {
     intensity = parseFloat(document.getElementById("rangeImg").value); // Récupérer la valeur du curseur
-    document.getElementById("testImg").innerText = intensity.toFixed(2); // Afficher la valeur dans la div
+    document.getElementById("chiffre").innerText = intensity.toFixed(2); // Afficher la valeur dans la div
 
     // Appliquer les filtres sur les deux canaux d'images avec la nouvelle intensité
     const canvas1 = imgView.querySelector("canvas");
@@ -374,71 +238,83 @@ range.addEventListener('input', RangeValue);
 
 /////////////////////////// Fin Range  ///////////////////////////
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                            /////////////////////////// Range Value Img ///////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////// Range Value Img ///////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
 // Récupérer les éléments
 const rangeImg = document.getElementById('rangeImg');
-const rangeValueImg = document.getElementById('testTmg');
+const rangeValueImg = document.getElementById('chiffre');
 const rangeContainerImg = document.querySelector('.range-containerImg');
 
 // Mettre à jour la valeur affichée et la position
 function RangeValueImg() {
-    let value = rangeImg.value;
-    const rangeWidth = rangeImg.offsetWidth;
-    const valuePosition = (value - rangeImg.min) / (rangeImg.max - rangeImg.min) * rangeWidth;
+    let valueImg = rangeImg.value;
+    // console.log('Initial value:', valueImg);
+    
+    const rangeWidthImg = rangeImg.offsetWidth;
+    // console.log('Range width:', rangeWidthImg);
+    
+    const valuePositionImg = (valueImg - rangeImg.min) / (rangeImg.max - rangeImg.min) * rangeWidthImg;
+    // console.log('Value position:', valuePositionImg);
+    
+    valueImg = Math.round(valueImg * 10) / 10;  // Multiplie par 10, arrondit, puis divise par 10
+    // console.log('Rounded value:', valueImg);
+   
+    
+    // Mettre à jour la valeur affichée 
+    // if (rangeValueImg) {  // Assure-toi que rangeValueImg existe
+        rangeValueImg.textContent = valueImg;
+        // console.log('Updated textContent:', rangeValueImg.textContent);
+    // } else {
+    //     console.error('Element with id "testTmg" not found!');
+    // }
 
-    value = Math.round(value * 10) / 10;  // Multiplie par 10, arrondit, puis divise par 10
 
-    // Mettre à jour la valeur affichée
-    rangeValueImg.textContent = value;
-
-    // //////////////////////////////////////////////////////////////////////////////////////
-    // ////////////////////// Pour obtenir la taille en pixel à partir de la taille en pourcentage ///////////////////////////
-    // //////////////////////////////////////////////////////////////////////////////////////
+    // //////////////////////////////////////////////////////////////////////////////
+    // ///// Pour obtenir la taille en pixel à partir de la taille en pourcentage ///
+    // //////////////////////////////////////////////////////////////////////////////
 
     // Supposons que vous avez un pourcentage et une largeur d'élément parent
-    let pourcentage = valuePosition;  // 50% par exemple
+    let pourcentage = 99;  // 50% par exemple
     let parentElement = document.querySelector('.range-containerImg');  // Parent de l'élément
     // Obtenir la largeur de l'élément parent
     let parentWidth = parentElement.offsetWidth;
     // Calculer la largeur en pixels
     let widthInPixels = (pourcentage / 100) * parentWidth;
-    // console.log(widthInPixels);  
+    // console.log('Width in pixels:', widthInPixels);
     // Affiche la largeur en pixels
 
-    // //////////////////////////////////////////////////////////////////////////////////////
-    // //////////////////////////////// Et le Ré utiliser dans la condition "if" //////////////////////////////////////////////
-    // //////////////////////////////////////////////////////////////////////////////////////
+    // //////////////////////////////////////////////////////////////////////////////
+    // ///////////////// Et le Ré utiliser dans la condition "if" //////////////////
+    // //////////////////////////////////////////////////////////////////////////////
 
     // Positionner la valeur au-dessus du curseur
-    if(Math.abs(valuePosition - widthInPixels) < 1){
-        rangeValueImg.style.left = `calc(${valuePosition}px - 25px)`;
-        // console.log(valuePosition);
+    if(Math.abs(valuePositionImg - widthInPixels) < 1){
+        rangeValueImg.style.left = `calc(${valuePositionImg}px - 25px)`;
+        // console.log('Condition 1:', valuePositionImg);
     }
-    else if (valuePosition == 0) {
-        rangeValueImg.style.left = `calc(${valuePosition}px + 1%)`;
-        // console.log(valuePosition);
+    else if (valuePositionImg == 0) {
+        rangeValueImg.style.left = `calc(${valuePositionImg}px + 1%)`;
+        // console.log('Condition 2:', valuePositionImg);
     }
     else {
-        // rangeValue.style.left = valuePosition;
-        rangeValueImg.style.left = `calc(${valuePosition}px)`;
-        // console.log(valuePosition);
+        rangeValueImg.style.left = `calc(${valuePositionImg}px)`;
+        // console.log('Condition 3:', valuePositionImg);
     }
     // +1rem pour éviter qu'il ne touche la barre
 }
+
 // Appel initial pour positionner la valeur
 RangeValueImg();
+
 // Mettre à jour la valeur lorsque le curseur se déplace
 rangeImg.addEventListener('input', RangeValueImg);
 
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                        /////////////////////////// Fin Range Img ///////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
+// //////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////// Fin Range Img ///////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
+// //////////////////////////////////////////////////////////////////////////////////
