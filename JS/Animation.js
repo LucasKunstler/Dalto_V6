@@ -11,7 +11,7 @@ let originalImg2 = null;
 
 // Déclarer une variable pour l'intensité du filtre
 let intensity = 0.5; // Valeur par défaut à 0.5
-let currentFilter = 'btnProtanope';
+let currentFilter = null;
 
 // Charger une image aléatoire de base à l'ouverture de la page
 window.onload = function () {
@@ -56,7 +56,7 @@ function updateColorsFromRange() {
 
     // Appliquer le filtre actuellement sélectionné avec la nouvelle intensité
     if (originalImg1 && originalImg2) {
-        applyFilterToCanvas(imgView, originalImg1, currentFilter);
+        
         applyFilterToCanvas(imgViews, originalImg2, currentFilter);
     }
 }
