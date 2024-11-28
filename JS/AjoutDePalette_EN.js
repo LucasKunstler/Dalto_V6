@@ -4,7 +4,7 @@ const maxPalettes = 6;
 function addPalette() {
 
     if (paletteCounter >= maxPalettes) {
-        alert("Le nombre maximum de palettes a été atteint.");
+        alert("Maximum number of pallets has been reached.");
         return; // Empêche l'ajout de palettes supplémentaires
     }
 
